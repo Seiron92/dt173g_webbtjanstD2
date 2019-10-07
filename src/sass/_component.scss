@@ -7,7 +7,7 @@ $colors: (
   // DEKLARERA FLERA FÄRGER
     links: rgb(255, 255, 255),
   font: #54728c,
-  border: #dcecf2,
+  error: red,
   accent: #123859,
   font-light: lighten(#123859, 40%),
   font-dark: darken(#123859, 2%)
@@ -100,7 +100,7 @@ a {
   }
 }
 p {
-  color: color(font);
+  color: color(error);
   font-family: $roboto;
   font-size: 1em;
 }
