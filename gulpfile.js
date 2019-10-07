@@ -61,7 +61,7 @@ function copyHTML() {
 function jsTask() {
     return src(files.jsPath)
         .pipe(browserSync.stream())
-        .pipe(uglify())
+       // .pipe(uglify())
         .pipe(sourcemapsB.init())
         .pipe(babel())
         .pipe(concatB("main.js"))
