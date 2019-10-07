@@ -1,4 +1,4 @@
-const urlGet = "http://studenter.miun.se/~rese1800/dt173g/webbtjanstDel1/corses.php/api";
+const urlGet = "https://studenter.miun.se/~rese1800/dt173g/webbtjanstDel1/corses.php/api";
 fetch(urlGet).then(function (response) {
   if (response.status !== 200) {
     console.log(response.status);
@@ -12,7 +12,7 @@ fetch(urlGet).then(function (response) {
       $("#courses").append('<tr><td>' + element.Code + '</td><td class="long">' + element.Name + '</td><td class="center">' + element.Progression + '</td><td><a href="' + element.Course_syllabus + '" target="blank">Webblänk</a></td><td class="center btn" id="deletebtn' + element.Id + '">x</td><td class="btn" id="btn' + element.Id + '">Ändra</td></tr>');
       const change = $('#btn' + element.Id);
       const deletebtn = $('#deletebtn' + element.Id);
-      const urlSet = "http://studenter.miun.se/~rese1800/dt173g/webbtjanstDel1/corses.php/api/" + element.Id;
+      const urlSet = "https://studenter.miun.se/~rese1800/dt173g/webbtjanstDel1/corses.php/api/" + element.Id;
       /* CHANGE COURSE */
 
       $(change).click(function () {

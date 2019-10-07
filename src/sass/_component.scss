@@ -1,0 +1,119 @@
+/*is for components such as buttons, navbars, cards, anything that is reusable. 
+Since we have a small project our component file should be manageable.
+*/
+
+/* COLORS */
+$colors: (
+  // DEKLARERA FLERA FÄRGER
+    links: rgb(255, 255, 255),
+  font: #54728c,
+  border: #dcecf2,
+  accent: #123859,
+  font-light: lighten(#123859, 40%),
+  font-dark: darken(#123859, 2%)
+);
+
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+
+/* FONTS */
+$roboto: 'Roboto', sans-serif;
+
+/* MIXINS */
+@mixin buttons {
+  background: color(font-light);
+  color: color(links);
+  font-size: 1em;
+  font-family: $roboto;
+  outline: none;
+  border: none;
+  padding: $paddingButton;
+  border-radius: 15px;
+  padding-left: $paddingMenu;
+  padding-right: $paddingMenu;
+  cursor: pointer;
+margin-top:$paddingMenu;
+  &:hover {
+    background: color(font-dark);
+    transition: ease-in-out 0.8s;
+  }
+}
+/* MEDIA QUERIES */
+$small: 1100px;
+$xsmall: 550px;
+
+@mixin small {
+  @media (max-width: #{$small}) {
+    @content;
+  }
+}
+@mixin xsmall {
+  @media (max-width: #{$xsmall}) {
+    @content;
+  }
+}
+/* PADDINGS AND MARGINS */
+$paddingMenu: 20px;
+$paddingButton: 5px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+h1 {
+  font-family: $roboto;
+  font-size: 2.8em;
+  text-align: center;
+  color: color(accent);
+  margin-bottom: 50px;
+  @include small {
+    font-size: 2em;
+}
+}
+h2 {
+  color: color(accent);
+  font-family: $roboto;
+  font-size: 2em;
+  text-align: left;
+  @include small {
+    font-size: 1.8em;
+}
+}
+h3 {
+  color: color(font);
+  font-family: $roboto;
+  font-size: 1.8em;
+  text-align: left;
+  @include small {
+    font-size: 1.8em;
+}
+}
+a {
+  cursor: pointer;
+
+  &:hover {
+    @if (color(font) == #54728c) {
+      color: color(accent);
+      transition: ease-in-out 0.2s;
+    }
+  }
+}
+p {
+  color: color(font);
+  font-family: $roboto;
+  font-size: 1em;
+}
+button{
+    @include buttons();
+}
+label {
+    display: block;
+    font-family: $roboto;
+}
+input {
+    display: inline-block;
+    font-family: $roboto;
+    font-size: 1em;
+ 
+}
